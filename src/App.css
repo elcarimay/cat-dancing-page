@@ -1,0 +1,175 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 1rem;
+  padding: 2rem 1rem;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  letter-spacing: 0.03em;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  min-height: 1.6em;
+  font-weight: 500;
+}
+
+/* Cat stage */
+.dancing-cat-wrapper {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat-container {
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat-image {
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
+}
+
+/* Music notes */
+.music-notes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.note {
+  position: absolute;
+  top: 20%;
+  animation: noteFloat 1.5s ease-out infinite;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Stars */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  font-size: 1rem;
+  animation: starTwinkle 1s ease-in-out infinite;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+
+.btn:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-toggle.playing {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+}
+
+.btn-toggle.paused {
+  background: linear-gradient(135deg, #6bcb77, #4d9e57);
+  color: white;
+}
+
+.btn-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+
+.btn-mode {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.btn-mode:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-mode:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Mode dots */
+.mode-indicators {
+  display: flex;
+  gap: 8px;
+}
+
+.mode-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.mode-dot.active {
+  background: white;
+  transform: scale(1.4);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .title { font-size: 2rem; }
+  .cat-image { width: 140px; }
+  .dancing-cat-wrapper { width: 220px; height: 220px; }
+  .btn { padding: 0.6rem 1.5rem; font-size: 0.95rem; }
+}
+
+@media (min-width: 768px) {
+  .cat-image { width: 200px; }
+  .dancing-cat-wrapper { width: 320px; height: 320px; }
+  .title { font-size: 3.2rem; }
+}
